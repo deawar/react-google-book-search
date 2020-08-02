@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "react-google-book-search:src/components/List/index.ListItem (nodejs12.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "client",
+                "lambdaHandler": "src/components/List/index.ListItem"
+            },
+            "lambda": {
+                "runtime": "nodejs12.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

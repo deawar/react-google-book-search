@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import TopNav from "./components/TopNav";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <TopNav />
         <Switch>
           <Route exact path={["/", "/books"]}>
             <Books />

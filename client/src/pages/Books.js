@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
+import Cards from "../components/Cards";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -57,38 +58,33 @@ function Books() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-12">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>(React) Google Books Search</h1>
+              <h4>Search for and Save Books of Interest</h4> 
             </Jumbotron>
-            <form>
-              <Input
-                onChange={handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
+          </Col>  
+          <Col size="md-12">
+            <Jumbotron>
+              <h6>Books Search</h6>
+                <div>
+                  <form>
+                    <Input
+                      onChange={handleInputChange}
+                      name="title"
+                      placeholder="Search for a book by Title, Author, or Subject"
+                    />
+                    <FormBtn
+                      disabled={!(formObject.author && formObject.title)}
+                      onClick={handleFormSubmit}
+                    >
+                      Submit Search
+                    </FormBtn>
+                  </form>
+                </div>
+            </Jumbotron>
           </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron>
+          <Col size="md-12 sm-12">
             {books.length ? (
               <List>
                 {books.map(book => (
@@ -107,6 +103,16 @@ function Books() {
             )}
           </Col>
         </Row>
+        
+        <div>
+          <Col size="md-12 sm-12">
+            <Row>
+              <div>
+                <Cards />
+              </div>
+            </Row>
+          </Col>
+        </div>
       </Container>
     );
   }
